@@ -1,0 +1,417 @@
+{
+    "package": "Blockchain",
+    "tagline": "Blockchain Data API",
+    "description": "Blockchain is the world's leading software platform for digital assets. Offering the largest production blockchain platform in the world, we are using new technology to build a radically better financial system.",
+    "image": "https:\/\/logo.clearbit.com\/blockchain.info",
+    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-Blockchain-Package",
+    "keywords": [
+        "API",
+        "blockchain",
+        "financial"
+    ],
+    "accounts": {
+        "domain": "https:\/\/blockchain.info",
+        "credentials": []
+    },
+    "blocks": [
+        {
+            "name": "getSingleBlock",
+            "description": "Return a single block",
+            "args": [
+                {
+                    "name": "hash",
+                    "type": "String",
+                    "info": "Block hash",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/rawblock\/{$data['hash']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleTransaction",
+            "description": "Return a single transaction",
+            "args": [
+                {
+                    "name": "transactionHash",
+                    "type": "String",
+                    "info": "Transaction hash",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/rawblock\/{$data['transactionHash']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getChartData",
+            "description": "Return a data for charts",
+            "args": [
+                {
+                    "name": "chartType",
+                    "type": "String",
+                    "info": "Chart type. Example: `transactions-per-second`",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/charts\/{$data['chartType']}?format=json",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getBlockForSpecifiedHeight",
+            "description": "Return a block for specified height",
+            "args": [
+                {
+                    "name": "blockHeight",
+                    "type": "Number",
+                    "info": "Height of block",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/block-height\/{$data['blockHeight']}?format=json",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getSingleAddress",
+            "description": "Return data for single address",
+            "args": [
+                {
+                    "name": "address",
+                    "type": "String",
+                    "info": "Address can be base58 or hash160",
+                    "required": true
+                },
+                {
+                    "name": "limit",
+                    "type": "Number",
+                    "info": "Limit parameter to show n transactions. (Default: 50, Max: 50)",
+                    "required": false
+                },
+                {
+                    "name": "offset",
+                    "type": "Number",
+                    "info": "Offset parameter to skip the first n transactions. (Page 2 for limit 50)",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/rawaddr\/{$data['address']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "limit",
+                            "offset"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getMultiAddress",
+            "description": "Return data for multi address",
+            "args": [
+                {
+                    "name": "address",
+                    "type": "List",
+                    "info": "Address can be base58 or xpub",
+                    "required": true,
+                    "structure": {
+                        "name": "singleAddress",
+                        "type": "String",
+                        "info": "Single address"
+                    },
+                    "vendorSchema": {
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "limit",
+                    "type": "Number",
+                    "info": "Limit parameter to show n transactions. (Default: 50, Max: 50)",
+                    "required": false
+                },
+                {
+                    "name": "offset",
+                    "type": "Number",
+                    "info": "Offset parameter to skip the first n transactions. (Page 2 for limit 50)",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/rawaddr\/{$data['address']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "limit",
+                            "offset"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getUnspentOutputs",
+            "description": "Return unspent outputs",
+            "args": [
+                {
+                    "name": "address",
+                    "type": "List",
+                    "info": "Address can be base58 or xpub",
+                    "required": true,
+                    "structure": {
+                        "name": "singleAddress",
+                        "type": "String",
+                        "info": "Single address"
+                    },
+                    "vendorSchema": {
+                        "name": "active",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "limit",
+                    "type": "Number",
+                    "info": "Limit parameter to show n transactions. (Default: 50, Max: 50)",
+                    "required": false
+                },
+                {
+                    "name": "confirmations",
+                    "type": "Number",
+                    "info": "Confirmations parameter to limit the minimum confirmations. (Page 2 for limit 50)",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/unspent",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "active",
+                            "limit",
+                            "confirmations"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getBalance",
+            "description": "List the balance summary of each address listed.",
+            "args": [
+                {
+                    "name": "address",
+                    "type": "List",
+                    "info": "Address can be base58 or xpub",
+                    "required": true,
+                    "structure": {
+                        "name": "singleAddress",
+                        "type": "String",
+                        "info": "Single address"
+                    },
+                    "vendorSchema": {
+                        "name": "active",
+                        "format": "toString:{|}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/balance",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "active"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getLatestBlock",
+            "description": "Return latest block data",
+            "args": [],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/latestblock",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getUnconfirmedTransactions",
+            "description": "Return unconfirmed transactions",
+            "args": [],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/unconfirmed-transactions?format=json",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDayBlocks",
+            "description": "Get blocks for one day",
+            "args": [
+                {
+                    "name": "date",
+                    "type": "DatePicker",
+                    "info": "Date",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{unixtime}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/blocks\/{$data['date']}?format=json",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getPoolBlocks",
+            "description": "Get blocks for specific pool",
+            "args": [
+                {
+                    "name": "pool",
+                    "type": "String",
+                    "info": "Pool name",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": " https:\/\/blockchain.info\/ru\/blocks\/{$data['pool']}?format=json",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        }
+    ]
+}
