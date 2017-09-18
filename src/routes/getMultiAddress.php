@@ -13,24 +13,20 @@ $app->post('/api/Blockchain/getMultiAddress', function ($request, $response) {
     }
 
     $requiredParams = ['address'=>'address'];
-    $optionalParams = ['limit'=>'limit','offset'=>'offset'];
+    $optionalParams = ['active','limit'=>'limit','offset'=>'offset'];
     $bodyParams = [
-       'query' => ['limit','offset']
+       'query' => ['active','limit','offset']
     ];
 
-    $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
-    $data['address'] = \Models\Params::toString($data['address'], '|'); 
+    $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
+    $data['active'] = \Models\Params::toString($data['address'], '|');
 
     $client = $this->httpClient;
-    $query_str = "https://blockchain.info/ru/rawaddr/{$data['address']}";
-
-    
+    $query_str = "https://blockchain.info/ru/multiaddr";
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];
-     
 
     try {
         $resp = $client->get($query_str, $requestParams);
