@@ -19,9 +19,6 @@ $app->post('/api/Blockchain/getDayBlocks', function ($request, $response) {
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
-    $data['date'] = \Models\Params::toFormat($data['date'], 'unixtime'); 
-
     $client = $this->httpClient;
     $query_str = "https://blockchain.info/ru/blocks/{$data['date']}?format=json";
 

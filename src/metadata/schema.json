@@ -186,7 +186,7 @@
                 {
                     "name": "limit",
                     "type": "Number",
-                    "info": "Limit parameter to show n transactions. (Default: 50, Max: 50)",
+                    "info": "Limit parameter to show n transactions. (Default: 50, Max: 50). This parameter does not work stably.",
                     "required": false
                 },
                 {
@@ -242,7 +242,7 @@
                 {
                     "name": "limit",
                     "type": "Number",
-                    "info": "Limit parameter to show n transactions. (Default: 50, Max: 50)",
+                    "info": "Limit parameter to show n transactions. (Default: 250, Max: 1000)",
                     "required": false
                 },
                 {
@@ -364,12 +364,9 @@
             "args": [
                 {
                     "name": "date",
-                    "type": "DatePicker",
-                    "info": "Date",
-                    "required": true,
-                    "vendorSchema": {
-                        "format": "toFormat:{unixtime}"
-                    }
+                    "type": "Number",
+                    "info": "Date into unixtime format. Example: 1505606503400",
+                    "required": true
                 }
             ],
             "vendorRequest": {

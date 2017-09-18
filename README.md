@@ -56,7 +56,7 @@ Return data for multi address
 | Field  | Type  | Description
 |--------|-------|----------
 | address| List  | Address can be base58 or xpub
-| limit  | Number| Limit parameter to show n transactions. (Default: 50, Max: 50)
+| limit  | Number| Limit parameter to show n transactions. (Default: 50, Max: 50). This parameter does not work stably.
 | offset | Number| Offset parameter to skip the first n transactions. (Page 2 for limit 50)
 
 ## Blockchain.getUnspentOutputs
@@ -65,7 +65,7 @@ Return unspent outputs
 | Field        | Type  | Description
 |--------------|-------|----------
 | address      | List  | Address can be base58 or xpub
-| limit        | Number| Limit parameter to show n transactions. (Default: 50, Max: 50)
+| limit        | Number| Limit parameter to show n transactions. (Default: 250, Max: 1000)
 | confirmations| Number| Confirmations parameter to limit the minimum confirmations. (Page 2 for limit 50)
 
 ## Blockchain.getBalance
@@ -90,7 +90,7 @@ Get blocks for one day
 
 | Field| Type      | Description
 |-----|-----------|----------
-| date| DatePicker| Date
+| date| Number| Date into unixtime format. Example: 1505606503400
 
 ## Blockchain.getPoolBlocks
 Get blocks for specific pool
