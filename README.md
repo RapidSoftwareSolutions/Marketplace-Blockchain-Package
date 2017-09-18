@@ -56,7 +56,7 @@ Return data for multi address
 | Field  | Type  | Description
 |--------|-------|----------
 | address| List  | Address can be base58 or xpub
-| limit  | Number| Limit parameter to show n transactions. (Default: 50, Max: 50). This parameter does not work stably.
+| limit  | Number| Limit parameter to show n transactions. (Default: 50, Max: 100). This parameter does not work stably.
 | offset | Number| Offset parameter to skip the first n transactions. (Page 2 for limit 50)
 
 ## Blockchain.getUnspentOutputs

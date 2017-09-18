@@ -186,7 +186,7 @@
                 {
                     "name": "limit",
                     "type": "Number",
-                    "info": "Limit parameter to show n transactions. (Default: 50, Max: 50). This parameter does not work stably.",
+                    "info": "Limit parameter to show n transactions. (Default: 50, Max: 100). This parameter does not work stably.",
                     "required": false
                 },
                 {
