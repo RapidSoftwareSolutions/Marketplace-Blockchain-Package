@@ -174,15 +174,6 @@ Get fee included in a transaction (in satoshi).
 | key   | credentials| Your blockchain.info api key.
 | txHash| String     | Tx hash string
 
-## Blockchain.calculateResult
-Calculate the result of a transaction sent or received to Address.
-
-| Field  | Type       | Description
-|--------|------------|----------
-| key    | credentials| Your blockchain.info api key.
-| txHash | String     | Tx hash string
-| address| String     | Address can be base58 or hash160
-
 ## Blockchain.convertAddressToHash
 Converts a bitcoin address to a hash 160.
 

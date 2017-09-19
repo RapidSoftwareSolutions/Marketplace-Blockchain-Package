@@ -691,44 +691,6 @@
             ]
         },
         {
-            "name": "calculateResult",
-            "description": "Calculate the result of a transaction sent or received to Address.",
-            "args": [
-                {
-                    "name": "key",
-                    "type": "credentials",
-                    "info": "Your blockchain.info api key.",
-                    "required": false
-                },
-                {
-                    "name": "txHash",
-                    "type": "String",
-                    "info": "Tx hash string",
-                    "required": true
-                },
-                {
-                    "name": "address",
-                    "type": "String",
-                    "info": "Address can be base58 or hash160",
-                    "required": true
-                }
-            ],
-            "vendorRequest": {
-                "url": "https:\/\/blockchain.info\/ru\/q\/txresult\/{$data['txHash']}\/{$data['address']}",
-                "method": "get"
-            },
-            "callbacks": [
-                {
-                    "name": "error",
-                    "info": "Error"
-                },
-                {
-                    "name": "success",
-                    "info": "Success"
-                }
-            ]
-        },
-        {
             "name": "convertAddressToHash",
             "description": "Converts a bitcoin address to a hash 160.",
             "args": [

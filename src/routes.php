@@ -22,7 +22,6 @@ $routes = [
     'getTransationTotalOutputValue',
     'getTransationTotalInputValue',
     'getTransactionFree',
-    'calculateResult',
     'convertAddressToHash',
     'convertHashToAddress',
     'convertKeyToHash',
