@@ -21,7 +21,7 @@ $app->post('/api/Blockchain/getDataBehindCharts', function ($request, $response)
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
     if(isset($data['start'])){
-        $data['start'] = \Models\Params::toFromat($data['start'], 'unixtime');
+        $data['start'] = \Models\Params::toFormat($data['start'], 'unixtime');
     }
 
     $client = $this->httpClient;
