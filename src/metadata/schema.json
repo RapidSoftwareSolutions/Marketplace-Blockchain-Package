@@ -13,6 +13,10 @@
         "domain": "https:\/\/blockchain.info",
         "credentials": []
     },
+    "steps": [
+        "Please fill out the form to apply for an API key - https://api.blockchain.info/customer/signup",
+        "Requests for API keys are typically reviewed within 2-3 business days."
+    ],
     "blocks": [
         {
             "name": "getSingleBlock",
@@ -398,6 +402,1132 @@
             "vendorRequest": {
                 "url": " https:\/\/blockchain.info\/ru\/blocks\/{$data['pool']}?format=json",
                 "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getCurrentDifficultyTarget",
+            "description": "Current difficulty target as a decimal number",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/getdifficulty",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getCurrentBlockHeight",
+            "description": "Current block height in the longest chain",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/getblockcount",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getCurrentBlockReward",
+            "description": "Current block reward in BTC",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/bcperblock",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getTotalBitcoins",
+            "description": "Total Bitcoins in circulation (delayed by up to 1 hour])",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/totalbc",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getValidBlockProbability",
+            "description": "Probability of finding a valid block each hash attempt",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/probability",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAverageNumberHashAttempts",
+            "description": "Average number of hash attempts needed to solve a block",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/hashestowin",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getNextBlockHeight",
+            "description": "Block height of the next difficulty retarget",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/nextretarget",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAverageTransactionSize",
+            "description": "Average transaction size for the past 1000 blocks. Change the number of blocks by passing an integer as the second argument e.g. avgtxsize\/2000.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/avgtxsize",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAverageTime",
+            "description": "Average time between blocks in seconds",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/interval",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getEstimatedTime",
+            "description": "Estimated time until the next block (in seconds)",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/eta",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAverageTransactionsNumber",
+            "description": "Average number of transactions per block (100 Default)",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/avgtxnumber",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAddressReceivedNumber",
+            "description": "Get the total number of bitcoins received by an address (in satoshi).",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "address",
+                    "type": "String",
+                    "info": "Address can be base58 or hash160",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/getreceivedbyaddress\/{$data['address']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAddressTransmitBitcoins",
+            "description": "Get the total number of bitcoins send by an address",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "address",
+                    "type": "String",
+                    "info": "Address can be base58 or hash160",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/getsentbyaddress\/{$data['address']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAddressBalance",
+            "description": "Get the balance of an address (in satoshi). ",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "address",
+                    "type": "String",
+                    "info": "Address can be base58 or hash160",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/addressbalance\/{$data['address']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAddressTimestamp",
+            "description": "Timestamp of the block an address was first confirmed in.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "address",
+                    "type": "String",
+                    "info": "Address can be base58 or hash160",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/addressfirstseen\/{$data['address']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getTransationTotalOutputValue",
+            "description": "Get total output value of a transaction (in satoshi)",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "txHash",
+                    "type": "String",
+                    "info": "Tx hash string",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/txtotalbtcoutput\/{$data['txHash']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getTransationTotalInputValue",
+            "description": "Get total input value of a transaction (in satoshi)",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "txHash",
+                    "type": "String",
+                    "info": "Tx hash string",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/txtotalbtcinput\/{$data['txHash']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getTransactionFree",
+            "description": "Get fee included in a transaction (in satoshi).",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "txHash",
+                    "type": "String",
+                    "info": "Tx hash string",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/txfee\/{$data['txHash']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "calculateResult",
+            "description": "Calculate the result of a transaction sent or received to Address.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "txHash",
+                    "type": "String",
+                    "info": "Tx hash string",
+                    "required": true
+                },
+                {
+                    "name": "address",
+                    "type": "String",
+                    "info": "Address can be base58 or hash160",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/txresult\/{$data['txHash']}\/{$data['address']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "convertAddressToHash",
+            "description": "Converts a bitcoin address to a hash 160.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "address",
+                    "type": "String",
+                    "info": "Address can be base58 or hash160",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/addresstohash\/{$data['address']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "convertHashToAddress",
+            "description": "Converts a hash 160 to a bitcoin address.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "txHash",
+                    "type": "String",
+                    "info": "Tx hash string",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/hashtoaddress\/{$data['txHash']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "convertKeyToHash",
+            "description": "Converts a public key to a hash 160",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "pubKey",
+                    "type": "String",
+                    "info": "Public key string",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/hashpubkey\/{$data['pubKey']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "convertKeyToAddress",
+            "description": "Converts a public key to an Address",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "pubKey",
+                    "type": "String",
+                    "info": "Public key string",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/addrpubkey\/{$data['pubKey']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "convertAddressToPublicKey",
+            "description": "Converts an address to public key (if available)",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "address",
+                    "type": "String",
+                    "info": "Address can be base58 or hash160",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/pubkeyaddr\/{$data['address']}",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getUnconfirmedTransactionsNumber",
+            "description": "Number of pending unconfirmed transactions",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/unconfirmedcount",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDayPrice",
+            "description": "24 hour weighted price from the largest exchanges",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/24hrprice",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getUSDMarketCap",
+            "description": "USD market cap (based on 24 hour weighted price)",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/marketcap",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDayTransactionCount",
+            "description": "Number of transactions in the past 24 hours",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/24hrtransactioncount",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDaySentCount",
+            "description": "Number of btc sent in the last 24 hours (in satoshi)",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/24hrbtcsent",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getEstimatedRate",
+            "description": "Estimated network hash rate in gigahash",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/hashrate",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getRejectedReason",
+            "description": "Lookup the reason why the provided tx or block hash was rejected (if any)",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/q\/rejected",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getExchangeRate",
+            "description": "Returns a JSON object with the currency codes as keys. `15m` is the 15 minutes delayed market price, `last` is the most recent market price, `symbol` is the currency symbol.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/ru\/ticker",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "convertToBTC",
+            "description": "Convert x value in the provided currency to btc.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "currency",
+                    "type": "Select",
+                    "options": [
+                        "USD",
+                        "JPY",
+                        "CNY",
+                        "SGD",
+                        "HKD",
+                        "CAD",
+                        "NZD",
+                        "AUD",
+                        "CLP",
+                        "GBP",
+                        "DKK",
+                        "SEK",
+                        "ISK",
+                        "CHF",
+                        "BRL",
+                        "EUR",
+                        "RUB",
+                        "PLN",
+                        "THB",
+                        "KRW",
+                        "TWD"
+                    ],
+                    "info": "A currency code. Must be: USD,JPY,CNY,SGD,HKD,CAD,NZD,AUD,CLP,GBP,DKK,SEK,ISK,CHF,BRL,EUR,RUB,PLN,THB,KRW,TWD",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value to convert.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/blockchain.info\/tobtc",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "currency",
+                            "value"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDataBehindCharts",
+            "description": "Get the data behind Blockchain's charts.",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "chartName",
+                    "type": "String",
+                    "info": "Chart name. Example: transactions-per-second",
+                    "required": false
+                },
+                {
+                    "name": "timespan",
+                    "type": "String",
+                    "info": "Duration of the chart, default is 1 year for most charts, 1 week for mempool charts. Example: 5weeks",
+                    "required": false
+                },
+                {
+                    "name": "rollingAverage",
+                    "type": "String",
+                    "info": "Duration over which the data should be averaged. Example: 8hours",
+                    "required": false
+                },
+                {
+                    "name": "start",
+                    "type": "DatePicker",
+                    "info": "Datetime at which to start the chart.",
+                    "required": false,
+                    "vendorSchema": {
+                        "format": "toFromat:{unixtime}"
+                    }
+                },
+                {
+                    "name": "sampled",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Boolean set to 'true' or 'false' (default 'true'). If true, limits the number of datapoints returned to ~1.5k for performance reasons. ",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.blockchain.info\/charts\/{$data['chartName']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "timespan",
+                            "rollingAverage",
+                            "start",
+                            "sampled"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDataBehindStats",
+            "description": "Get the data behind Blockchain's stats",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.blockchain.info\/stats",
+                "method": "get"
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getDataBehindPoolsInformation",
+            "description": "Get the data behind Blockchain's pools information",
+            "args": [
+                {
+                    "name": "key",
+                    "type": "credentials",
+                    "info": "Your blockchain.info api key.",
+                    "required": false
+                },
+                {
+                    "name": "timespan",
+                    "type": "String",
+                    "info": "Duration over which the data is computed, maximum 10 days, default is 4 days. Example: 5days",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.blockchain.info\/pools",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "timespan"
+                        ]
+                    }
+                ]
             },
             "callbacks": [
                 {
