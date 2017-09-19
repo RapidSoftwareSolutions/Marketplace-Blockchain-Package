@@ -364,8 +364,8 @@
             "args": [
                 {
                     "name": "date",
-                    "type": "Number",
-                    "info": "Date into unixtime format. Example: 1505606503400",
+                    "type": "DatePicker",
+                    "info": "Required date.",
                     "required": true
                 }
             ],

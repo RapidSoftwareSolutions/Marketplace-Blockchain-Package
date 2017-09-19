@@ -90,7 +90,7 @@ Get blocks for one day
 
 | Field| Type      | Description
 |-----|-----------|----------
-| date| Number| Date into unixtime format. Example: 1505606503400
+| date| DatePicker| Required date.
 
 ## Blockchain.getPoolBlocks
 Get blocks for specific pool

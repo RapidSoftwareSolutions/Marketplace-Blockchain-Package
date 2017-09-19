@@ -18,15 +18,14 @@ $app->post('/api/Blockchain/getDayBlocks', function ($request, $response) {
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
+    $data['date'] = strtotime($data['date']) * 1000;
 
     $client = $this->httpClient;
     $query_str = "https://blockchain.info/ru/blocks/{$data['date']}?format=json";
 
-    
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];
-
 
     try {
         $resp = $client->get($query_str, $requestParams);
