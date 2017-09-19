@@ -20,13 +20,12 @@ $app->post('/api/Blockchain/getDataBehindCharts', function ($request, $response)
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
-    $data['start'] = \Models\Params::toFromat($data['start'], 'unixtime'); 
+    if(isset($data['start'])){
+        $data['start'] = \Models\Params::toFromat($data['start'], 'unixtime');
+    }
 
     $client = $this->httpClient;
     $query_str = "https://api.blockchain.info/charts/{$data['chartName']}";
-
-    
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];
