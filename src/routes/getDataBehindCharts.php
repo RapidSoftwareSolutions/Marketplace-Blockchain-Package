@@ -4,7 +4,7 @@ $app->post('/api/Blockchain/getDataBehindCharts', function ($request, $response)
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, []);
+    $validateRes = $checkRequest->validate($request, ['chartName']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,8 +12,8 @@ $app->post('/api/Blockchain/getDataBehindCharts', function ($request, $response)
         $post_data = $validateRes;
     }
 
-    $requiredParams = [];
-    $optionalParams = ['key'=>'key','chartName'=>'chartName','timespan'=>'timespan','rollingAverage'=>'rollingAverage','start'=>'start','sampled'=>'sampled'];
+    $requiredParams = ['chartName'=>'chartName'];
+    $optionalParams = ['key'=>'key','timespan'=>'timespan','rollingAverage'=>'rollingAverage','start'=>'start','sampled'=>'sampled'];
     $bodyParams = [
        'query' => ['timespan','rollingAverage','start','sampled']
     ];

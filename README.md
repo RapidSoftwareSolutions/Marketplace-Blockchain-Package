@@ -103,13 +103,6 @@ Get blocks for specific pool
 |-----|-------|----------
 | pool| String| Pool name
 
-## Blockchain.getCurrentDifficultyTarget
-Current difficulty target as a decimal number
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
 ## Blockchain.getCurrentBlockHeight
 Current block height in the longest chain
 
@@ -124,61 +117,6 @@ Current block reward in BTC
 |----|------------|----------
 | key| credentials| Your blockchain.info api key.
 
-## Blockchain.getTotalBitcoins
-Total Bitcoins in circulation (delayed by up to 1 hour])
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getValidBlockProbability
-Probability of finding a valid block each hash attempt
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getAverageNumberHashAttempts
-Average number of hash attempts needed to solve a block
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getNextBlockHeight
-Block height of the next difficulty retarget
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getAverageTransactionSize
-Average transaction size for the past 1000 blocks. Change the number of blocks by passing an integer as the second argument e.g. avgtxsize/2000.
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getAverageTime
-Average time between blocks in seconds
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getEstimatedTime
-Estimated time until the next block (in seconds)
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getAverageTransactionsNumber
-Average number of transactions per block (100 Default)
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
 
 ## Blockchain.getAddressReceivedNumber
 Get the total number of bitcoins received by an address (in satoshi).
@@ -284,55 +222,6 @@ Converts an address to public key (if available)
 |--------|------------|----------
 | key    | credentials| Your blockchain.info api key.
 | address| String     | Address can be base58 or hash160
-
-## Blockchain.getUnconfirmedTransactionsNumber
-Number of pending unconfirmed transactions
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getDayPrice
-24 hour weighted price from the largest exchanges
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getUSDMarketCap
-USD market cap (based on 24 hour weighted price)
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getDayTransactionCount
-Number of transactions in the past 24 hours
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getDaySentCount
-Number of btc sent in the last 24 hours (in satoshi)
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getEstimatedRate
-Estimated network hash rate in gigahash
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
-
-## Blockchain.getRejectedReason
-Lookup the reason why the provided tx or block hash was rejected (if any)
-
-| Field    | Type       | Description
-|----|------------|----------
-| key| credentials| Your blockchain.info api key.
 
 ## Blockchain.getExchangeRate
 Returns a JSON object with the currency codes as keys. `15m` is the 15 minutes delayed market price, `last` is the most recent market price, `symbol` is the currency symbol.

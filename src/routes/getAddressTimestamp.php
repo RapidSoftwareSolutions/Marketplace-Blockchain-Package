@@ -36,7 +36,7 @@ $app->post('/api/Blockchain/getAddressTimestamp', function ($request, $response)
 
         if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
             $result['callback'] = 'success';
-            $result['contextWrites']['to']['result'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
+            $result['contextWrites']['to']['result']['timestamp'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
             if(empty($result['contextWrites']['to'])) {
                 $result['contextWrites']['to']['status_msg'] = "Api return no results";
             }
